@@ -1,0 +1,952 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Title>Тест-кейсы и дефекты TCP-сервера варианта 3</Title>
+  <Author>Server Parse Task</Author>
+  <LastAuthor>Хала</LastAuthor>
+  <Created>2026-06-01T00:00:00Z</Created>
+  <LastSaved>2026-06-02T18:25:37Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>11985</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Font ss:FontName="Calibri" ss:Size="11"/>
+  </Style>
+  <Style ss:ID="m1966322193764">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m1966322193784">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966322193804">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m1966322193824">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966320816116">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966320816136">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966322589012">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966322589032">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966322591300">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966322591320">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="m1966322589636">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m1966322589656">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" ss:Size="14" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#1F4E78" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#FF9999" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#C6E0B4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s88">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s89">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Bold="1"/>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s90">
+   <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFE699" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s91">
+   <Alignment ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Тест-план">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="19" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="35.25"/>
+   <Column ss:Width="180"/>
+   <Column ss:Width="65.25"/>
+   <Column ss:Width="270"/>
+   <Column ss:Width="54.75"/>
+   <Column ss:Width="219.75"/>
+   <Column ss:Width="150"/>
+   <Column ss:Width="75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="24">
+    <Cell ss:MergeAcross="7" ss:StyleID="s63"><Data ss:Type="String">Тест-план по системному тестированию TCP-сервера по теме №3</Data></Cell>
+   </Row>
+   <Row ss:Index="3" ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="7" ss:StyleID="m1966322193764"><Data ss:Type="String">Цели тестирования</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="32.0625">
+    <Cell ss:MergeAcross="7" ss:StyleID="m1966322193784"><Data ss:Type="String">Проверить обработку TCP-запросов, работу SQLite через Singleton, функции варианта 3 и генерацию документации Doxygen.</Data></Cell>
+   </Row>
+   <Row ss:Index="6" ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="7" ss:StyleID="m1966322193804"><Data ss:Type="String">Критерий завершения</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="32.0625">
+    <Cell ss:MergeAcross="7" ss:StyleID="m1966322193824"><Data ss:Type="String">Все обязательные функции проверены. Все дефекты задокументированы. Перед сдачей должны быть исправлены дефекты уровня Critical.</Data></Cell>
+   </Row>
+   <Row ss:Index="9" ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="7"><Data ss:Type="String">Приоритет 1 — самый высокий</Data></Cell>
+   </Row>
+   <Row ss:Index="11" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">№</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Область функционала</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Приоритет</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Стратегия тестирования</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Часы</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Риски</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Статус</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Примечание</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="35.0625">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">TCP-подключение и парсер</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Позитивные и негативные запросы, несколько команд, фрагментация TCP</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Преждевременная обработка части сообщения</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Есть дефект</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">D-001</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="35.0625">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">SQLite и Singleton</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Создание файла БД, запись запросов, ошибка открытия БД</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сервер продолжает работу без доступной БД</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Есть дефект</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">D-002</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Шифр Виженера</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Шифрование, расшифровка, проверка ключа</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">0.5</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Некорректный ключ</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Протестировано</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">SHA-512</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сравнение результата с известным SHA-512</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">0.5</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Кодирование строки</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Протестировано</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Метод деления пополам</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Корректный и некорректный интервалы</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">0.5</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Интервал без корня</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Протестировано</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Кратчайший путь в графе</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Достижимый и недостижимый путь, проверка веса рёбер</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Ошибки маршрута</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Протестировано</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Документация Doxygen</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Генерация HTML и проверка index.html</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">0.5</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Неполная документация</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Протестировано</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Итого</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">2 дефекта</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1C1:R1C8</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Чек-лист + Дефекты">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="21" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="65.25"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="219.75"/>
+   <Column ss:Width="279.75"/>
+   <Column ss:Width="219.75"/>
+   <Column ss:Width="249.75"/>
+   <Column ss:Width="65.25" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="24">
+    <Cell ss:MergeAcross="7" ss:StyleID="s63"><Data ss:Type="String">Чек-лист системного тестирования и найденные дефекты</Data></Cell>
+   </Row>
+   <Row ss:Index="3" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ID</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Область</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Проверка</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Запрос / данные</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Ожидаемый результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Фактический результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Статус</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">№ дефекта</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-001</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">TCP</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Подключиться к 127.0.0.1:33333</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Подключение клиента</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">OK|connected</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">OK|connected</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-002</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Парсер</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Отправить неизвестную команду</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">unknown_command</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: unknown request</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: unknown request</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-003</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Виженер</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Зашифровать известный текст</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">encrypt|LEMON|Attack at dawn</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">OK|cipher=Lxfopv ef rnhr</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">OK|cipher=Lxfopv ef rnhr</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-004</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Виженер</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Расшифровать известный текст</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">decrypt|LEMON|Lxfopv ef rnhr</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">OK|text=Attack at dawn</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">OK|text=Attack at dawn</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-005</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Виженер</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Проверить пустой ключ</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">encrypt||text</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: key must not be empty</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: key must not be empty</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-006</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">SHA-512</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Получить хеш строки hello</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">hash|hello</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">SHA-512: 9b71...c043</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">SHA-512 совпадает</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-007</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Деление пополам</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Найти корень на интервале [1; 2]</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">bisection|1|2|0.000001</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">root ≈ 1.52138</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">root=1.52138042449951</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-008</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Деление пополам</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Интервал без смены знака</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">bisection|2|3|0.001</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сообщение об ошибке</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: function values ... different signs</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-009</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Граф</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Найти кратчайший путь A → D</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">shortest_path|A|D|A,B,1;B,D,2;A,D,10</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">distance=3, path=A-&gt;B-&gt;D</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">distance=3, path=A-&gt;B-&gt;D</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-010</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Граф</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Проверить отсутствие пути</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">shortest_path|A|D|A,B,1;C,D,2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: no path ...</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: no path ...</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-011</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">SQLite</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Показать путь к БД</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">db_info</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Путь к server_database.db в папке проекта</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Путь корректный</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-012</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">SQLite</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Прочитать журнал запросов</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">show_db</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Строки id, created_at, request, response</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Журнал возвращён</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-013</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Парсер</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Передать несколько строк за одно соединение</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">hash|one\nhash|two\n</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Два ответа</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Получены два ответа</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.0625">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-014</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Парсер</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Передать запрос двумя TCP-фрагментами с паузой &gt; 30 мс</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">hash|hel [pause] lo\n</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Один ответ для hash|hello</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Первая часть обрабатывается раньше завершения запроса</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">FAIL</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">D-001</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.0625">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-015</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">SQLite</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Запустить сервер при недоступной БД</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Запретить запись в server_database.db</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сервер не запускается или сообщает критическую ошибку</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">TCP-сервер продолжает слушать порт</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">FAIL</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">D-002</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CH-016</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Doxygen</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сгенерировать HTML-документацию</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">doxygen Doxyfile</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Создан docs/html/index.html</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Файл создан</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:Index="21" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Итого</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">PASS: 14, FAIL: 2</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>7</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Тест-кейс 1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="45"/>
+   <Column ss:Width="260.25"/>
+   <Column ss:Width="219.75"/>
+   <Column ss:Width="69.75"/>
+   <Column ss:Width="200.25"/>
+   <Column ss:Width="65.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="24">
+    <Cell ss:MergeAcross="5" ss:StyleID="s63"><Data ss:Type="String">TC-001. Обработка TCP-запросов</Data></Cell>
+   </Row>
+   <Row ss:Index="3" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Описание</Data></Cell>
+    <Cell ss:MergeAcross="4" ss:StyleID="m1966320816116"><Data ss:Type="String">Проверка подключения клиента и обработки строковых команд.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Начальные условия</Data></Cell>
+    <Cell ss:MergeAcross="4" ss:StyleID="m1966320816136"><Data ss:Type="String">Сервер собран и запущен. Порт 33333 свободен.</Data></Cell>
+   </Row>
+   <Row ss:Index="6" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">№</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Действие</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Ожидаемый результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Статус</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Фактический результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Дефект</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Подключиться к 127.0.0.1:33333</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Получено приветствие</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">OK|connected</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Отправить hash|hello</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Получен SHA-512</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Хеш совпадает с эталоном</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Отправить unknown_command</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Получена ошибка</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Error: unknown request</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1C1:R1C6</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Тест-кейс 2">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="45"/>
+   <Column ss:Width="300"/>
+   <Column ss:Width="219.75"/>
+   <Column ss:Width="69.75"/>
+   <Column ss:Width="200.25"/>
+   <Column ss:Width="65.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="24">
+    <Cell ss:MergeAcross="5" ss:StyleID="s63"><Data ss:Type="String">TC-002. Функции темы №3</Data></Cell>
+   </Row>
+   <Row ss:Index="3" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Описание</Data></Cell>
+    <Cell ss:MergeAcross="4" ss:StyleID="m1966322589012"><Data ss:Type="String">Проверка шифра Виженера, метода деления пополам и алгоритма Дейкстры.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Начальные условия</Data></Cell>
+    <Cell ss:MergeAcross="4" ss:StyleID="m1966322589032"><Data ss:Type="String">Сервер запущен. TCP-клиент подключён.</Data></Cell>
+   </Row>
+   <Row ss:Index="6" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">№</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Действие</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Ожидаемый результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Статус</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Фактический результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Дефект</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">encrypt|LEMON|Attack at dawn</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">cipher=Lxfopv ef rnhr</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Результат совпадает</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">decrypt|LEMON|Lxfopv ef rnhr</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">text=Attack at dawn</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Исходный текст восстановлен</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">bisection|1|2|0.000001</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">root ≈ 1.52138</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">root=1.52138042449951</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">shortest_path|A|D|A,B,1;B,D,2;A,D,10</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">distance=3, path=A-&gt;B-&gt;D</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Маршрут найден</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1C1:R1C6</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Тест-кейс 3">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="45"/>
+   <Column ss:Width="279.75"/>
+   <Column ss:Width="240"/>
+   <Column ss:Width="69.75"/>
+   <Column ss:Width="200.25"/>
+   <Column ss:Width="65.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="24">
+    <Cell ss:MergeAcross="5" ss:StyleID="s63"><Data ss:Type="String">TC-003. SQLite и Singleton</Data></Cell>
+   </Row>
+   <Row ss:Index="3" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Описание</Data></Cell>
+    <Cell ss:MergeAcross="4" ss:StyleID="m1966322591300"><Data ss:Type="String">Проверка физического файла SQLite и сохранения истории запросов.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Начальные условия</Data></Cell>
+    <Cell ss:MergeAcross="4" ss:StyleID="m1966322591320"><Data ss:Type="String">Файл server_database.db доступен для записи. Сервер запущен.</Data></Cell>
+   </Row>
+   <Row ss:Index="6" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">№</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Действие</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Ожидаемый результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Статус</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Фактический результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Дефект</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Отправить db_info</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Путь указывает на БД в папке проекта</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Путь корректный</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Отправить hash|hello</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Получен ответ SHA-512</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Ответ получен</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Отправить show_db</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">В журнале есть запрос hash|hello</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Запись найдена</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Проверить наличие server_database.db</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Физический файл существует</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">PASS</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Файл создан</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1C1:R1C6</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Дефекты">
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="60"/>
+   <Column ss:Width="240"/>
+   <Column ss:Width="69.75" ss:Span="1"/>
+   <Column ss:Index="5" ss:Width="75"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="300"/>
+   <Column ss:Width="260.25"/>
+   <Column ss:Width="279.75"/>
+   <Column ss:Width="300"/>
+   <Row ss:AutoFitHeight="0" ss:Height="24">
+    <Cell ss:MergeAcross="9" ss:StyleID="s63"><Data ss:Type="String">Зарегистрированные дефекты TCP-сервера</Data></Cell>
+   </Row>
+   <Row ss:Index="3" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">№</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Название</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Важность</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Приоритет</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Статус</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Компонент</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Шаги воспроизведения</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Ожидаемый результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Фактический результат</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Рекомендация</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="99.9375">
+    <Cell ss:StyleID="s81"><Data ss:Type="String">D-001</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Преждевременная обработка фрагментированного TCP-запроса</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Major</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">High</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Opened</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">TCP-парсер</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1. Подключиться к серверу.&#10;2. Отправить первую часть: hash|hel.&#10;3. Подождать более 30 мс.&#10;4. Отправить вторую часть: lo\n.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сервер должен дождаться перевода строки и обработать единый запрос hash|hello.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Таймер может обработать первую часть как отдельный запрос до поступления продолжения.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Обрабатывать запрос только после \n либо использовать длину сообщения в протоколе.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="99.9375">
+    <Cell ss:StyleID="s89"><Data ss:Type="String">D-002</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сервер продолжает работу при недоступной SQLite-БД</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Major</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Medium</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Opened</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">SQLite</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1. Запретить запись в server_database.db.&#10;2. Запустить сервер.&#10;3. Подключиться к порту 33333.&#10;4. Отправить show_db.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Сервер должен прекратить запуск или явно перейти в аварийный режим.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">TCP-сервер продолжает слушать порт, но журнал не сохраняется.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Проверять результат Database::open() и не запускать прослушивание порта при ошибке.</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Zoom>85</Zoom>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Отчет">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="17" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="260.25"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="69.75"/>
+   <Column ss:Width="90" ss:Span="4"/>
+   <Row ss:AutoFitHeight="0" ss:Height="24">
+    <Cell ss:MergeAcross="7" ss:StyleID="s63"><Data ss:Type="String">Отчёт о системном тестировании TCP-сервера по теме №3</Data></Cell>
+   </Row>
+   <Row ss:Index="3" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Версия</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Дата</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">01.06.2026</Data></Cell>
+   </Row>
+   <Row ss:Index="6" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Метрика</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Значение</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">%</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Запланировано проверок</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">100%</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Выполнено проверок</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">100%</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Успешно выполнено</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">87.5%</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Неуспешно выполнено</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">12.5%</Data></Cell>
+   </Row>
+   <Row ss:Index="12" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Зарегистрировано дефектов</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="Number">2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Critical</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Major</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="Number">2</Data></Cell>
+   </Row>
+   <Row ss:Index="16" ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="7" ss:StyleID="m1966322589636"><Data ss:Type="String">Заключение</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="69.9375">
+    <Cell ss:MergeAcross="7" ss:StyleID="m1966322589656"><Data ss:Type="String">Система выполняет обязательные функции темы №3 : TCP-парсинг, SQLite-журнал через Singleton, шифр Виженера, SHA-512, метод деления пополам и поиск кратчайшего пути. Зарегистрированы два дефекта уровня Major. Перед финальной сдачей рекомендуется исправить D-001 и D-002.</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Zoom>130</Zoom>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

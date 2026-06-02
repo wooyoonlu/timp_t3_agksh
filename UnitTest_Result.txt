@@ -1,0 +1,23 @@
+********* Start testing of ServerParseUnitTest *********
+Config: Using QtTest library 6.10.1, Qt 6.10.1 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.2.0), windows 10
+PASS   : ServerParseUnitTest::initTestCase()
+PASS   : ServerParseUnitTest::vigenereEncryptsKnownText()
+PASS   : ServerParseUnitTest::vigenereDecryptsKnownText()
+PASS   : ServerParseUnitTest::vigenerePreservesCaseAndPunctuation()
+PASS   : ServerParseUnitTest::vigenereRejectsEmptyKey()
+PASS   : ServerParseUnitTest::vigenereRejectsNonLatinKey()
+PASS   : ServerParseUnitTest::sha512MatchesKnownDigest()
+PASS   : ServerParseUnitTest::bisectionFindsRoot()
+PASS   : ServerParseUnitTest::bisectionRejectsInvalidInterval()
+PASS   : ServerParseUnitTest::bisectionRejectsNonPositiveEpsilon()
+PASS   : ServerParseUnitTest::shortestPathFindsBestRoute()
+PASS   : ServerParseUnitTest::shortestPathHandlesSameVertex()
+PASS   : ServerParseUnitTest::shortestPathRejectsMissingRoute()
+PASS   : ServerParseUnitTest::shortestPathRejectsNegativeWeight()
+PASS   : ServerParseUnitTest::databaseIsSingleton()
+QDEBUG : ServerParseUnitTest::databaseStoresRequests() Database connected: ":memory:"
+QDEBUG : ServerParseUnitTest::databaseStoresRequests() Request saved: "hash|hello"
+PASS   : ServerParseUnitTest::databaseStoresRequests()
+PASS   : ServerParseUnitTest::cleanupTestCase()
+Totals: 17 passed, 0 failed, 0 skipped, 0 blacklisted, 81ms
+********* Finished testing of ServerParseUnitTest *********
