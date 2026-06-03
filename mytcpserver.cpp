@@ -35,6 +35,8 @@ void MyTcpServer::slotNewConnection()
         QTcpSocket *socket = mTcpServer->nextPendingConnection();
         socket->setProperty("requestBuffer", QByteArray());
         socket->setProperty("flushScheduled", false);
+        socket->setProperty("loggedIn", false);
+        socket->setProperty("userLogin", QString());
         socket->write("OK|connected\n");
 
         connect(socket, &QTcpSocket::readyRead,
@@ -42,6 +44,8 @@ void MyTcpServer::slotNewConnection()
 
         connect(socket, &QTcpSocket::disconnected,
                 this, &MyTcpServer::slotClientDisconnected);
+        
+        qDebug() << "New client connected";
     }
 }
 
@@ -111,12 +115,15 @@ void MyTcpServer::processRequest(QTcpSocket *socket, const QByteArray &request)
     }
 
     qDebug() << "Request:" << requestText;
-    const QString response = handleRequest(requestText);
-    const QString storedResponse =
-        requestText.trimmed().compare("show_db", Qt::CaseInsensitive) == 0
-                                       ? "Database contents returned"
-                                       : response;
-    Database::instance().saveRequest(requestText, storedResponse);
+    const QString response = handleRequest(requestText, socket);
+    
+    // сохраняем запрос в бд (скрываем пароли)
+    QString safeRequest = requestText;
+    if (safeRequest.startsWith("reg|", Qt::CaseInsensitive) ||
+        safeRequest.startsWith("login|", Qt::CaseInsensitive)) {
+        safeRequest = safeRequest.split('|').mid(0, 2).join('|') + "|***";
+    }
+    Database::instance().saveRequest(safeRequest, response);
 
     socket->write(response.toUtf8());
     socket->write("\n");
@@ -126,24 +133,78 @@ void MyTcpServer::slotClientDisconnected()
 {
     QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
     if (socket) {
+        qDebug() << "Client disconnected";
         socket->deleteLater();
     }
 }
 
-QString MyTcpServer::handleRequest(const QString &request)
+QString MyTcpServer::handleRequest(const QString &request, QTcpSocket *clientSocket)
 {
     if (request.trimmed().isEmpty()) {
         return "Error: empty request";
     }
 
     const QStringList parts = request.split('|', Qt::KeepEmptyParts);
+    if (parts.isEmpty()) {
+        return "Error: invalid request format";
+    }
+    
     const QString action = parts.at(0).trimmed().toLower();
 
-    if (action == "show_db") {
-        if (parts.size() != 1) {
-            return "Error: usage: show_db";
+    // команды без авторизации
+    if (action == "reg") {
+        if (parts.size() < 3) {
+            return "Error: usage: reg|login|password";
         }
-        return Database::instance().getAllRequests();
+        QString login = parts.at(1).trimmed();
+        QString password = parts.at(2).trimmed();
+        
+        if (login.isEmpty() || password.isEmpty()) {
+            return "Error: login and password cannot be empty";
+        }
+        
+        if (login.length() > 20) {
+            return "Error: login too long (max 20 characters)";
+        }
+        
+        if (Database::instance().userExists(login)) {
+            return "Error: user already exists";
+        }
+        
+        if (Database::instance().addUser(login, password, "user")) {
+            return "OK|registration successful";
+        } else {
+            return "Error: registration failed";
+        }
+    }
+
+    if (action == "login") {
+        if (parts.size() < 3) {
+            return "Error: usage: login|login|password";
+        }
+        QString login = parts.at(1).trimmed();
+        QString password = parts.at(2).trimmed();
+        
+        if (!Database::instance().checkUser(login, password)) {
+            return "Error: invalid login or password";
+        }
+        
+        clientSocket->setProperty("loggedIn", true);
+        clientSocket->setProperty("userLogin", login);
+        
+        QString role = Database::instance().getUserRole(login);
+        return "OK|login successful|role=" + role;
+    }
+
+    // проверка статуса (отладка)
+    if (action == "status") {
+        bool loggedIn = clientSocket->property("loggedIn").toBool();
+        QString login = clientSocket->property("userLogin").toString();
+        if (loggedIn) {
+            return "OK|logged in as " + login;
+        } else {
+            return "OK|not logged in";
+        }
     }
 
     if (action == "db_info") {
@@ -153,6 +214,113 @@ QString MyTcpServer::handleRequest(const QString &request)
         return "OK|database_path=" + Database::instance().databasePath();
     }
 
+    // просмотр истории запросов (только админ)
+    if (action == "show_db") {
+        bool loggedIn = clientSocket->property("loggedIn").toBool();
+        QString login = clientSocket->property("userLogin").toString();
+        
+        if (!loggedIn) {
+            return "Error: not logged in";
+        }
+        
+        QString role = Database::instance().getUserRole(login);
+        if (role != "admin") {
+            return "Error: admin rights required";
+        }
+        
+        return Database::instance().getAllRequests();
+    }
+
+    // проверка авторизации для остальных команд
+    bool loggedIn = clientSocket->property("loggedIn").toBool();
+    if (!loggedIn && action != "reg" && action != "login" && 
+        action != "db_info" && action != "status") {
+        return "Error: not logged in. Please use 'login|login|password' first";
+    }
+
+    // выход из системы
+    if (action == "logout") {
+        clientSocket->setProperty("loggedIn", false);
+        clientSocket->setProperty("userLogin", QString());
+        return "OK|logged out successfully";
+    }
+
+    // админ: список всех пользователей
+    if (action == "admin_list_users") {
+        QString login = clientSocket->property("userLogin").toString();
+        QString role = Database::instance().getUserRole(login);
+        
+        if (role != "admin") {
+            return "Error: admin rights required";
+        }
+        
+        return Database::instance().getAllUsersFormatted();
+    }
+
+    // админ: изменить роль пользователя
+    if (action == "admin_set_role") {
+        if (parts.size() < 3) {
+            return "Error: usage: admin_set_role|login|role";
+        }
+        
+        QString adminLogin = clientSocket->property("userLogin").toString();
+        QString adminRole = Database::instance().getUserRole(adminLogin);
+        
+        if (adminRole != "admin") {
+            return "Error: admin rights required";
+        }
+        
+        QString targetLogin = parts.at(1).trimmed();
+        QString newRole = parts.at(2).trimmed().toLower();
+        
+        if (newRole != "user" && newRole != "admin") {
+            return "Error: invalid role. Must be 'user' or 'admin'";
+        }
+        
+        if (!Database::instance().userExists(targetLogin)) {
+            return "Error: user does not exist";
+        }
+        
+        if (Database::instance().setUserRole(targetLogin, newRole)) {
+            return "OK|role changed: " + targetLogin + " is now " + newRole;
+        } else {
+            return "Error: failed to change role";
+        }
+    }
+
+    // админ: удалить пользователя
+    if (action == "admin_delete_user") {
+        if (parts.size() < 2) {
+            return "Error: usage: admin_delete_user|login";
+        }
+        
+        QString adminLogin = clientSocket->property("userLogin").toString();
+        QString adminRole = Database::instance().getUserRole(adminLogin);
+        
+        if (adminRole != "admin") {
+            return "Error: admin rights required";
+        }
+        
+        QString targetLogin = parts.at(1).trimmed();
+        
+        if (targetLogin == adminLogin) {
+            return "Error: cannot delete your own account";
+        }
+        
+        if (!Database::instance().userExists(targetLogin)) {
+            return "Error: user does not exist";
+        }
+        
+        if (Database::instance().deleteUser(targetLogin)) {
+            return "OK|user deleted: " + targetLogin;
+        } else {
+            return "Error: failed to delete user";
+        }
+    }
+
+    // основной функционал темы 3
+
+    // шифрование виженера
     if (action == "encrypt") {
         if (parts.size() < 3) {
             return "Error: usage: encrypt|key|text";
@@ -163,6 +331,7 @@ QString MyTcpServer::handleRequest(const QString &request)
         return error.isEmpty() ? "OK|cipher=" + cipher : "Error: " + error;
     }
 
+    // дешифрование виженера
     if (action == "decrypt") {
         if (parts.size() < 3) {
             return "Error: usage: decrypt|key|text";
@@ -173,6 +342,7 @@ QString MyTcpServer::handleRequest(const QString &request)
         return error.isEmpty() ? "OK|text=" + text : "Error: " + error;
     }
 
+    // sha-512 хеш
     if (action == "hash") {
         if (parts.size() < 2) {
             return "Error: usage: hash|text";
@@ -180,6 +350,7 @@ QString MyTcpServer::handleRequest(const QString &request)
         return "OK|sha512=" + VariantFunctions::sha512(parts.mid(1).join('|'));
     }
 
+    // метод деления пополам
     if (action == "bisection") {
         if (parts.size() != 4) {
             return "Error: usage: bisection|left|right|epsilon";
@@ -207,6 +378,7 @@ QString MyTcpServer::handleRequest(const QString &request)
             .arg(result.iterations);
     }
 
+    // поиск кратчайшего пути в графе
     if (action == "shortest_path") {
         if (parts.size() != 4) {
             return "Error: usage: shortest_path|start|finish|"
@@ -228,5 +400,25 @@ QString MyTcpServer::handleRequest(const QString &request)
             .arg(result.path.join("->"));
     }
 
-    return "Error: unknown request";
+    // справка
+    if (action == "help") {
+        return "OK|Available commands:\n"
+               "  reg|login|password - register new user\n"
+               "  login|login|password - authenticate\n"
+               "  logout - end session\n"
+               "  status - check login status\n"
+               "  encrypt|key|text - Vigenere encryption\n"
+               "  decrypt|key|cipher - Vigenere decryption\n"
+               "  hash|text - SHA-512 hash\n"
+               "  bisection|left|right|eps - find root of x^2-4\n"
+               "  shortest_path|start|end|edges - Dijkstra algorithm\n"
+               "  admin_list_users - show all users (admin only)\n"
+               "  admin_set_role|login|role - change user role (admin only)\n"
+               "  admin_delete_user|login - delete user (admin only)\n"
+               "  show_db - show request history (admin only)\n"
+               "  db_info - show database path\n"
+               "  help - show this message";
+    }
+
+    return "Error: unknown request. Try 'help' for available commands.";
 }
