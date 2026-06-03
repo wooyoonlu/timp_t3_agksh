@@ -40,9 +40,10 @@ public slots:
     /**
      * @brief Parses one request and invokes the corresponding function.
      * @param request Request in `command|argument|...` format.
+     * @param clientSocket Socket of the client making the request.
      * @return Text response for the client.
      */
-    QString handleRequest(const QString &request);
+    QString handleRequest(const QString &request, QTcpSocket *clientSocket);
 
 private:
     void processBufferedRequests(QTcpSocket *socket, bool flushPartial);
