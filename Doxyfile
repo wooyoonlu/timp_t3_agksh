@@ -1,0 +1,24 @@
+PROJECT_NAME           = "Variant 3 TCP Server"
+PROJECT_BRIEF          = "Qt TCP server with SQLite and variant 3 algorithms"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = README.md \
+                         main.cpp \
+                         mytcpserver.h \
+                         mytcpserver.cpp \
+                         database.h \
+                         database.cpp \
+                         variantfunctions.h \
+                         variantfunctions.cpp
+FILE_PATTERNS          = *.h *.cpp *.md
+USE_MDFILE_AS_MAINPAGE = README.md
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+QUIET                  = YES
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
