@@ -14,6 +14,26 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_btnConnect_clicked()
+{
+    // 1. Забираем текст из полей ввода IP и Порта
+    QString ip = ui->inputIp->text();
+    QString portStr = ui->inputPort->text();
+
+    // 2. Проверяем, не пустые ли они (если пустые - ставим значения по умолчанию)
+    if (ip.isEmpty()) ip = "127.0.0.1";
+    if (portStr.isEmpty()) portStr = "33333";
+
+    // 3. Преобразуем текст порта в цифры (тип quint16)
+    quint16 port = portStr.toUShort();
+
+    // 4. Подключаемся через Синглтон
+    ClientSingleton::getInstance().connectToServer(ip, port);
+
+    // 5. Выводим сообщение в большое окно логов
+    ui->textLogs->append("Попытка подключения к " + ip + ":" + portStr);
+}
+
 void MainWindow::on_btnSend_clicked()
 {
     // 1. Забираем текст из нижней белой полоски (куда ты будешь печатать команду)
