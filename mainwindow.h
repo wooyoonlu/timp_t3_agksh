@@ -3,32 +3,21 @@
 
 #include <QMainWindow>
 
-namespace Ui {
-class MainWindow;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void on_btnConnect_clicked();
-
-    void on_btnSend_clicked();
-
-    void on_btnShowDb_clicked();
-
-    void on_btnDbInfo_clicked();
-
-    void on_btnBisection_clicked();
-
-    void on_btnShortestPath_clicked();
-
-    void on_btnEncrypt_clicked();
+    void on_btnSend_clicked();       // Правая кнопка "Отправить"
+    void on_btnConnect_clicked();    // Левая кнопка "Подключиться"
 
 private:
     Ui::MainWindow *ui;

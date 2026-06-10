@@ -1,12 +1,27 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "client_singleton.h"
+#include "networkclient.h" // Подключаем синглтон
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // 1. Получаем доступ к синглтону
+    NetworkClient *client = NetworkClient::getInstance();
+
+    // 2. Подписываемся на ответы от сервера
+    connect(client, &NetworkClient::responseReceived, this, [this](const QString &response) {
+        ui->textLog->append("<b>Сервер:</b> " + response);
+    });
+
+    connect(client, &NetworkClient::connectedToServer, this, [this]() {
+        ui->textLog->append("<font color='green'>Подключено к серверу!</font>");
+    });
+
+    // 3. Авто-подключение при старте окна
+   // client->connectToServer("127.0.0.1", 33333);
 }
 
 MainWindow::~MainWindow()
@@ -14,84 +29,42 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_btnConnect_clicked()
-{
-    // 1. Забираем текст из полей ввода IP и Порта
-    QString ip = ui->inputIp->text();
-    QString portStr = ui->inputPort->text();
-
-    // 2. Проверяем, не пустые ли они (если пустые - ставим значения по умолчанию)
-    if (ip.isEmpty()) ip = "127.0.0.1";
-    if (portStr.isEmpty()) portStr = "33333";
-
-    // 3. Преобразуем текст порта в цифры (тип quint16)
-    quint16 port = portStr.toUShort();
-
-    // 4. Подключаемся через Синглтон
-    ClientSingleton::getInstance().connectToServer(ip, port);
-
-    // 5. Выводим сообщение в большое окно логов
-    ui->textLogs->append("Попытка подключения к " + ip + ":" + portStr);
-}
-
+// Слот нажатия на главную кнопку "Отправить" (справа)
 void MainWindow::on_btnSend_clicked()
 {
-    // 1. Забираем текст из нижней белой полоски (куда ты будешь печатать команду)
-    // Если ты назвала поле "inputMessage", то код такой:
-    QString textMessage = ui->inputMessage->text();
+    QString operation = ui->cmbOperation->currentText();
+    QString p1 = ui->lineEditP1->text();
+    QString p2 = ui->lineEditP2->text();
+    QString p3 = ui->lineEditP3->text();
 
-    // 2. Если поле было пустым, ничего не отправляем, просто выходим
-    if (textMessage.isEmpty()) {
-        return;
+    QString request;
+
+    // Формируем запросы строго по спецификации сервера
+    if (operation == "Шифр Виженера") {
+        request = QString("encrypt|%1|%2").arg(p1, p2);
+    }
+    else if (operation == "SHA-512") {
+        request = QString("hash|%1").arg(p1);
+    }
+    else if (operation == "Деление пополам") {
+        request = QString("bisection|%1|%2|%3").arg(p1, p2, p3);
+    }
+    else if (operation == "Алгоритм Дейкстры") {
+        request = QString("shortest_path|%1|%2|%3").arg(p1, p2, p3);
+    }
+    else if (operation == "Информация о БД") {
+        request = "db_info";
     }
 
-    // 3. Берем твой готовый клиент (Синглтон)
-    ClientSingleton& client = ClientSingleton::getInstance();
-
-    // 4. Отправляем текст на сервер
-    // ВНИМАНИЕ: замени "sendMessage" на то, как у тебя называется функция отправки!
-    client.sendCommand(textMessage.toStdString());
-
-    // 5. Печатаем этот же текст в большой белый квадрат посередине (textLogs),
-    // чтобы ты видела, что именно отправила
-    ui->textLogs->append("Вы: " + textMessage);
-
-    // 6. Очищаем нижнюю белую полоску ввода, чтобы было удобно писать следующее сообщение
-    ui->inputMessage->clear();
+    if (!request.isEmpty()) {
+        ui->textLog->append("Вы: " + request);
+        NetworkClient::getInstance()->sendRequest(request);
+    }
 }
 
-
-void MainWindow::on_btnShowDb_clicked()
+// Слот нажатия на кнопку "Подключиться" (слева)
+void MainWindow::on_btnConnect_clicked()
 {
-    ClientSingleton::getInstance().sendCommand("show_db");
-    ui->textLogs->append("Команда: show_db");
+    ui->textLog->append("Попытка подключения к серверу...");
+    NetworkClient::getInstance()->connectToServer("127.0.0.1", 33333);
 }
-
-
-void MainWindow::on_btnDbInfo_clicked()
-{
-    ClientSingleton::getInstance().sendCommand("db_info");
-    ui->textLogs->append("Команда: db_info");
-}
-
-
-void MainWindow::on_btnBisection_clicked()
-{
-    ClientSingleton::getInstance().sendCommand("bisection");
-    ui->textLogs->append("Команда: bisection");
-}
-
-
-void MainWindow::on_btnShortestPath_clicked()
-{
-    ClientSingleton::getInstance().sendCommand("shortest_path");
-    ui->textLogs->append("Команда: shortest_path");
-}
-
-
-void MainWindow::on_btnEncrypt_clicked()
-{
-    ClientSingleton::getInstance().sendCommand("encrypt");
-    ui->textLogs->append("Команда: encrypt");
-}
-
